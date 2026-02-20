@@ -231,7 +231,10 @@ static GHashTable * gum_interceptor_thread_contexts;
 static GPrivate gum_interceptor_context_private =
     G_PRIVATE_INIT ((GDestroyNotify) release_interceptor_thread_context);
 static GumTlsKey gum_interceptor_guard_key;
-
+ 
+GumTlsKey gum_interceptor_get_key(){
+    return gum_interceptor_guard_key;
+}
 static GumInvocationStack _gum_interceptor_empty_stack = { NULL, 0 };
 
 static void
